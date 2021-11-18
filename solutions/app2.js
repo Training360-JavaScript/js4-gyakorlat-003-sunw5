@@ -18,12 +18,18 @@
  * @returns {[{}, {}]} objektumok tömbjével tér vissza
  */
 const getUsers = async (url = '') => {
-    
+  try {
+    let resp = await fetch(url);  
+    let data = await resp.json();
+    return data;    
+  } catch (err) {
+    console.log('error: ', err);
+  }      
 };
 
 /**
  * TODO: exportáld ki helyesen a getUsers függvényt!
  */
 export {
-    
+  getUsers,    
 }
